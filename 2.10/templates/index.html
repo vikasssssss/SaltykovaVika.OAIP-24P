@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильмы</title>
+</head>
+<body>
+<h1>Мои фильмы</h1>
+
+{% for movie in movies %}
+<h2>{{ movie.title }}</h2>
+<p>Год: {{ movie.year }}</p>
+<p>Рейтинг: {{ movie.rating }}
+        {% if movie.rating >= 8.5 %}
+                    <p>Рекомендуем посмотреть</p>
+        {% endif %}</p>
+<a href = "/movie/{{ movie.id }}">Подробнее</a>
+{% endfor %}
+
+</body>
+</html>
