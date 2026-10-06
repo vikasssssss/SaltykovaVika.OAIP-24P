@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Избранное</title>
+</head>
+<body>
+
+<h1>Избранные фильмы</h1>
+
+<a href="/">На главную</a>
+
+<hr>
+
+{% if movies %}
+
+    {% for movie in movies %}
+
+<h2>{{ movie.title }}</h2>
+
+<p>{{ movie.year }}</p>
+
+<p>{{ movie.genre }}</p>
+
+<p>{{ movie.rating }}</p>
+
+<p>{{ movie.description }}</p>
+
+<a href="/remove/{{ movie.id }}">
+            Удалить из избранного
+</a>
+
+<a href="/clear">
+    Очистить избранное
+</a>
+
+
+<hr>
+
+    {% endfor %}
+
+{% else %}
+
+<p>Вы пока ничего не добавили.</p>
+
+{% endif %}
+
+
+</body>
+</html>
